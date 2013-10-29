@@ -4,8 +4,8 @@ public class Quote implements MessageItem {
     private final String subject;
     private final String value;
 
-    public Quote(String subject, String value) {
-        this.subject = subject;
+    public Quote(String currencyPair, String value) {
+        this.subject = currencyPair;
         this.value = value;
     }
 
@@ -35,5 +35,13 @@ public class Quote implements MessageItem {
         int result = subject.hashCode();
         result = 31 * result + value.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Quote{" +
+                "subject='" + subject + '\'' +
+                ", value='" + value + '\'' +
+                '}';
     }
 }
