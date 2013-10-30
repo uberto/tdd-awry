@@ -14,10 +14,14 @@ public class TradeTest {
 
     @Test
     public void useSwapTypeIfTradingIsSwap() {
+        //split test in two
+        //construct concrete bean using a fluent builder
         tradeBean = SimpleTradeBean.prepare().swapType("SPOTFWD").tradingType("SWAP");
 
+        //next step: maybe we can get rid of mutable trade bean at all...
         trade = new Trade(tradeBean);
 
+        //next step: better using a matcher on an expected Trade rather than a field at time
         assertEquals(TradeType.SPOTFWD, trade.getType());
     }
 
@@ -30,8 +34,8 @@ public class TradeTest {
         assertEquals(TradeType.SPOTFWD, trade.getType());
     }
 
-    private static class SimpleTradeBean implements TradeBean {
 
+    private static class SimpleTradeBean implements TradeBean {
 
         Map<String, String> fields = new HashMap<>();
 
