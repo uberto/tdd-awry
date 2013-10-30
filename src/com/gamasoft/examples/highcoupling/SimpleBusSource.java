@@ -1,7 +1,10 @@
 package com.gamasoft.examples.highcoupling;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class SimpleBusSource implements BusSource {
-    private BusListener listener;
+    private Map<String, BusListener> listeners = new HashMap<>();
 
     public SimpleBusSource() {
     }
@@ -14,12 +17,15 @@ public class SimpleBusSource implements BusSource {
 
     @Override
     public void notify(MessageData myMsg) {
-      this.listener.refresh(myMsg);
+        for (BusListener busListener : listeners.values()) {
+            //if msg topic is relevant for the listener
+            busListener.refresh(myMsg);
+        }
+
     }
 
     @Override
-    public void addTopicListener(BusListener listener) {
-
-        this.listener = listener;
+    public void addTopicListener(String topic, BusListener listener) {
+        listeners.put(topic, listener);
     }
 }

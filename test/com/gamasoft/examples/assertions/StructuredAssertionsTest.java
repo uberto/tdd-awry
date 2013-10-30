@@ -19,7 +19,7 @@ public class StructuredAssertionsTest {
 
         Quote calculated = getQuote("USD", "GBP");
 
-     //if one fail
+     //no very good because if one fail we don't know the value of the other check
         assertEquals(expected.getSubject(), calculated.getSubject());
         assertEquals(expected.getValue(), calculated.getValue());
 

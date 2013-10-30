@@ -5,5 +5,5 @@ public interface BusSource {
 
     void notify(MessageData msg);
 
-    void addTopicListener(BusListener listener);
+    void addTopicListener(String topic, BusListener listener);
 }

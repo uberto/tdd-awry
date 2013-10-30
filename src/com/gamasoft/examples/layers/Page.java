@@ -11,6 +11,6 @@ public class Page {
     }
 
     public String compose(List<MapOfString> modules) {
-        return "";
+        return "{}";
     }
 }
