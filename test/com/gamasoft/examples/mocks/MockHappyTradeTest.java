@@ -1,9 +1,5 @@
 package com.gamasoft.examples.mocks;
 
-import com.gamasoft.examples.mocks.Trade;
-import com.gamasoft.examples.mocks.TradeBean;
-import com.gamasoft.examples.mocks.TradeBeanFields;
-import com.gamasoft.examples.mocks.TradeType;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -13,11 +9,18 @@ import static org.mockito.Mockito.when;
 public class MockHappyTradeTest {
 
     private static final String ACCOUNT_VAL = "1000";
-    private static final String CURRENCY_PAIR_VAL = "1.20";
+    private static final String PRICE = "1.20";
+    public static final String CURRENCY_PAIR = "USDGBP";
     private TradeBean tradeBean = mock(TradeBean.class);
     private Trade trade;
 
 
+    @Test
+    public void testGetCurrencyPair_USDGBP() {
+        when(tradeBean.getField(TradeBeanFields.CURRENCY_PAIR)).thenReturn(CURRENCY_PAIR);
+        setUpTrade("FWD");
+        assertEquals(CURRENCY_PAIR, trade.getCurrencyPair());
+    }
 
     @Test
     public void testGetSwapType_SPOTFWD() {
@@ -34,7 +37,7 @@ public class MockHappyTradeTest {
 
     private void setUpTrade(final String tradingType) {
         when(tradeBean.getField(TradeBeanFields.ACCOUNT)).thenReturn(ACCOUNT_VAL);
-        when(tradeBean.getField(TradeBeanFields.CURRENCY_PAIR)).thenReturn(CURRENCY_PAIR_VAL);
+        when(tradeBean.getField(TradeBeanFields.PRICE)).thenReturn(PRICE);
         when(tradeBean.getField(TradeBeanFields.TRADING_TYPE)).thenReturn(tradingType);
         trade = new Trade(tradeBean);
     }

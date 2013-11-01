@@ -5,7 +5,6 @@ public class Trade {
 
     public Trade(TradeBean tradeBean) {
 
-
         this.tradeBean = tradeBean;
     }
 
@@ -14,5 +13,9 @@ public class Trade {
             return TradeType.valueOf(tradeBean.getField(TradeBeanFields.SWAP_TYPE));
        else //other trading types
             return TradeType.FWD;
+    }
+
+    public String getCurrencyPair() {
+        return tradeBean.getField(TradeBeanFields.CURRENCY_PAIR);
     }
 }

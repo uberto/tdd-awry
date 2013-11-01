@@ -18,7 +18,6 @@ public class RefiningAssertionsTest {
         assertEquals(10, words.length);
 
         assertEquals("To", words[0]);
-        assertEquals("question", words[9]);
 
     }
 

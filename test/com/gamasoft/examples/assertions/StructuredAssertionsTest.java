@@ -15,7 +15,6 @@ public class StructuredAssertionsTest {
     public void testValue() throws Exception {
 
         Quote expected = new Quote("USDGBP", "0.62");
-        Quote different = new Quote("USDGBB", "0,62");
 
         Quote calculated = getQuote("USD", "GBP");
 
@@ -25,8 +24,6 @@ public class StructuredAssertionsTest {
 
     //better because it compare all fields every time
         assertThat(expected, sameQuote(calculated));
-
-     //   assertThat(different, sameQuote(calculated));
     }
 
     private Matcher<Quote> sameQuote(Quote quote) {
