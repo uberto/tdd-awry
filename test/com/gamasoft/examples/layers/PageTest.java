@@ -64,7 +64,7 @@ public class PageTest {
 
         @Override
         public void describeTo(Description description) {
-
+        //description of the current object
         }
     }
 
