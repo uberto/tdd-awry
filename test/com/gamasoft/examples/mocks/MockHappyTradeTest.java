@@ -41,4 +41,26 @@ public class MockHappyTradeTest {
         when(tradeBean.getField(TradeBeanFields.TRADING_TYPE)).thenReturn(tradingType);
         trade = new Trade(tradeBean);
     }
+
+
+//split and inline
+    @Test
+    public void testGetSwapType_SPOTFWD_SWP() {
+        when(tradeBean.getField(TradeBeanFields.SWAP_TYPE)).thenReturn("SPOTFWD");
+        when(tradeBean.getField(TradeBeanFields.ACCOUNT)).thenReturn(ACCOUNT_VAL);
+        when(tradeBean.getField(TradeBeanFields.PRICE)).thenReturn(PRICE);
+        when(tradeBean.getField(TradeBeanFields.TRADING_TYPE)).thenReturn("SWAP");
+        trade = new Trade(tradeBean);
+        assertEquals(TradeType.SPOTFWD, trade.getType());
+    }
+
+    @Test
+    public void testGetSwapType_SPOTFWD_FWDSWP() {
+        when(tradeBean.getField(TradeBeanFields.SWAP_TYPE)).thenReturn("SPOTFWD");
+        when(tradeBean.getField(TradeBeanFields.ACCOUNT)).thenReturn(ACCOUNT_VAL);
+        when(tradeBean.getField(TradeBeanFields.PRICE)).thenReturn(PRICE);
+        when(tradeBean.getField(TradeBeanFields.TRADING_TYPE)).thenReturn("FWDFWDSWAP");
+        trade = new Trade(tradeBean);
+        assertEquals(TradeType.SPOTFWD, trade.getType());
+    }
 }

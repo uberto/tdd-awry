@@ -6,13 +6,13 @@ import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 
 public class StructuredAssertionsTest {
 
     @Test
-    public void testValue() throws Exception {
+    public void calculateQuote() throws Exception {
 
         Quote expected = new Quote("USDGBP", "0.62");
 

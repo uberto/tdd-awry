@@ -15,7 +15,7 @@ public class PublisherTest {
     private BusListener myListener = mock(BusListener.class);
 
     @Test
-    public void testName() throws Exception {
+    public void whenUpdateSendMessageToListeners() throws Exception {
 
         Quote eurusd = new Quote("EURUSD", "1.2");
 

@@ -7,7 +7,7 @@ import static junit.framework.Assert.assertEquals;
 public class IndipendentAssertionsTest {
 
     @Test
-    public void testName() throws Exception {
+    public void commutativeProperty() throws Exception {
 
         //these three should be put on 3 different tests
         //or use some kind of data table assertions like spec
